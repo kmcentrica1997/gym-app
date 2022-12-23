@@ -4,6 +4,7 @@ import React, {
   Text,
   Button,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import styled from 'styled-components';
 import {IMAGENAME} from '../../images';
@@ -11,7 +12,16 @@ const HomeScreen = () => {
   return (
     <StyledView>
       <StyledImage source={IMAGENAME} />
-      <TextContainer></TextContainer>
+      <TextContainer>
+        <HighLight />
+        <Heading>Wherever You Are Health Is Number One</Heading>
+        <MainText style={{color: 'rgba(25, 33, 38, 0.5)'}}>
+          There is no instant way to a healthy life
+        </MainText>
+      </TextContainer>
+      <StyledStatusBar>
+        <StyledBase />
+      </StyledStatusBar>
       <StyledButton onPress={() => null}>
         <ButtonText style={{color: 'white'}}>Get Started</ButtonText>
       </StyledButton>
@@ -23,12 +33,59 @@ const StyledView = styled(View)`
   background-color: 'rgba (0.96, 0.96, 0.96, 1)';
   flex: 1;
 `;
+const StyledStatusBar = styled(View)`
+  /* flex: 0.01; */
+  height: 0.7%;
+  width: 15%;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin-top: 20px;
+  background: #192126;
+  border-radius: 5px;
+`;
+const StyledBase = styled(View)`
+  /* width: 21px;
+  height: 3px; */
+  padding-top: 2px;
+  padding-right: 2px;
+  padding-left: 10px;
+  margin-right: 42px;
+  background: #bbf246;
+  border-radius: 5px;
+`;
+const Heading = styled(Text)`
+  font-family: 'lato-regular';
+  font-weight: 800;
+  font-size: 24px;
+  /* line-height: 29px; */
+  text-align: center;
+  width: 68%;
+  margin-left: 60px;
+`;
+
+const HighLight = styled(View)`
+  height: 8%;
+  width: 20%;
+  top: 30%;
+  margin-left: 18%;
+  background: #bbf246;
+`;
+
+const MainText = styled(Text)`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  font-family: 'lato-regular';
+`;
 
 const StyledButton = styled(TouchableOpacity)`
-  left: 20px;
-  margin-top: 75px;
+  margin-left: 20px;
+  margin-top: 45px;
   width: 90%;
-  height: 6%;
+  height: 7%;
   background-color: #192126;
   border-radius: 32px;
   align-items: 'center';
@@ -39,6 +96,7 @@ const StyledButton = styled(TouchableOpacity)`
 
 const TextContainer = styled(View)`
   justify-content: center;
+  margin-top: 10px;
 `;
 
 const ButtonText = styled(Text)`
@@ -51,12 +109,10 @@ const ButtonText = styled(Text)`
 
 const StyledImage = styled(ImageBackground)`
   width: 100%;
-  flex: 0.8;
-  /* opacity: 0.8; */
+  flex: 0.95;
+  opacity: 0.7;
   /* flex: 0.4; */
-  justify-content: 'center';
-
-  background-color: 'rgba(0.4,0.4,0.4,0.89)';
+  background: #c4c4c4;
 `;
 
 export default HomeScreen;
