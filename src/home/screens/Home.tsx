@@ -2,12 +2,17 @@ import React, {
   View,
   ImageBackground,
   Text,
-  Button,
   TouchableOpacity,
-  Image,
 } from 'react-native';
 import styled from 'styled-components';
 import {IMAGENAME} from '../../images';
+import {RootStackParamList} from '../../navigation/types';
+
+// type HomeProps = NativeStackScreenProps<
+//   RootStackParamList,
+//   'ResetPassword'
+// >;
+
 const HomeScreen = () => {
   return (
     <StyledView>
@@ -15,15 +20,13 @@ const HomeScreen = () => {
       <TextContainer>
         <HighLight />
         <Heading>Wherever You Are Health Is Number One</Heading>
-        <MainText style={{color: 'rgba(25, 33, 38, 0.5)'}}>
-          There is no instant way to a healthy life
-        </MainText>
+        <MainText>There is no instant way to a healthy life</MainText>
       </TextContainer>
       <StyledStatusBar>
         <StyledBase />
       </StyledStatusBar>
       <StyledButton onPress={() => null}>
-        <ButtonText style={{color: 'white'}}>Get Started</ButtonText>
+        <ButtonText>Get Started</ButtonText>
       </StyledButton>
     </StyledView>
   );
@@ -78,6 +81,7 @@ const MainText = styled(Text)`
   text-align: center;
   font-weight: 400;
   font-size: 15px;
+  color: rgba(25, 33, 38, 0.5);
   font-family: 'lato-regular';
 `;
 
@@ -96,7 +100,8 @@ const StyledButton = styled(TouchableOpacity)`
 
 const TextContainer = styled(View)`
   justify-content: center;
-  margin-top: 10px;
+  margin-top: -15px;
+  text-align: center;
 `;
 
 const ButtonText = styled(Text)`
@@ -104,15 +109,14 @@ const ButtonText = styled(Text)`
   font-family: 'lato-regular';
   font-weight: 700;
   font-size: 16px;
-  color: 'white';
+  color: white;
 `;
 
 const StyledImage = styled(ImageBackground)`
   width: 100%;
+  height: 100%;
   flex: 0.95;
-  opacity: 0.7;
-  /* flex: 0.4; */
-  background: #c4c4c4;
+  border-radius: 300px !important;
 `;
 
 export default HomeScreen;
