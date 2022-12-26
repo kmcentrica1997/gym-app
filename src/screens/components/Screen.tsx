@@ -1,8 +1,8 @@
 import React, {View} from 'react-native';
 import styled from 'styled-components';
 
-const Screen = () => {
-  return <Container></Container>;
+const Screen = ({children}: any) => {
+  return <Container>{children}</Container>;
 };
 
 const Container = styled(View)`

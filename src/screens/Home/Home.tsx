@@ -6,7 +6,7 @@ import React, {
 } from 'react-native';
 import styled from 'styled-components';
 import {IMAGENAME} from '../../images';
-import {RootStackParamList} from '../../navigation/types';
+// import {RootStackParamList} from '../../navigation/types';
 
 // type HomeProps = NativeStackScreenProps<
 //   RootStackParamList,
