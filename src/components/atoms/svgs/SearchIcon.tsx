@@ -2,9 +2,9 @@ import * as React from 'react';
 import Svg, {Circle, Path} from 'react-native-svg';
 
 interface SearchIcon {
-  width: number;
-  height: number;
-  color: string;
+  width?: number;
+  height?: number;
+  color?: string;
 }
 
 const SearchIcon = ({
@@ -12,7 +12,7 @@ const SearchIcon = ({
   height = 24,
   color = '#8C9093',
 }: SearchIcon) => {
-  const viewBox = `0 0 ${width}${height}`;
+  const viewBox = `0 0 ${width} ${height}`;
   return (
     <Svg width={width} height={height} viewBox={viewBox} fill="none">
       <Circle cx={11.5} cy={11.5} r={7.5} stroke={color} strokeWidth={1.5} />
