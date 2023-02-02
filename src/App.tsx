@@ -3,7 +3,7 @@ import {
   useNavigationContainerRef,
 } from '@react-navigation/native';
 import React from 'react';
-import RootNavigator from './navigation/RootNavigator';
+import {RootNavigator} from './navigation';
 
 export default () => {
   const navigationRef = useNavigationContainerRef();

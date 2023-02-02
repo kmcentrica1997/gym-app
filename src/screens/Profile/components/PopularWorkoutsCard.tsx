@@ -1,9 +1,9 @@
 import React, {Image, ImageBackground, View} from 'react-native';
 import styled from 'styled-components';
-import {IMAGENAME} from '../../../images';
-const image = {
-  uri: 'https://img.freepik.com/free-photo/young-athletic-woman-white-headphones-training-listening-music-street-outdoors-working-lower-body-out-mat-concept-healthy-lifestyle-open-air-sport-activity-weight-loss_155003-23052.jpg?w=1800&t=st=1672243583~exp=1672244183~hmac=e78938c5ed5c5b8b6ef435ec4722c2cbb06fd06afc0626c2e129d3409706e13c',
-};
+
+interface ImageCardProps {
+  uri: String;
+}
 
 const PopularWorkouts = () => {
   return (

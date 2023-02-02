@@ -1,3 +1,5 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {FC} from 'react';
 import React, {
   View,
   ImageBackground,
@@ -6,17 +8,16 @@ import React, {
 } from 'react-native';
 import styled from 'styled-components';
 import {IMAGENAME} from '../../images';
-// import {RootStackParamList} from '../../navigation/types';
+import {Profile, RootStackParamList} from '../../navigation/types';
 
-// type HomeProps = NativeStackScreenProps<
-//   RootStackParamList,
-//   'ResetPassword'
-// >;
-
-const HomeScreen = () => {
+type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+const image = {
+  uri: 'https://cdn.dribbble.com/users/287797/screenshots/2710791/media/203d5458207b838ae31f4c5ba1e9727e.gif',
+};
+const HomeScreen: FC<HomeProps> = ({navigation}) => {
   return (
     <StyledView>
-      <StyledImage source={IMAGENAME} />
+      <StyledImage source={image} />
       <TextContainer>
         <HighLight />
         <Heading>Wherever You Are Health Is Number One</Heading>
@@ -25,7 +26,7 @@ const HomeScreen = () => {
       <StyledStatusBar>
         <StyledBase />
       </StyledStatusBar>
-      <StyledButton onPress={() => null}>
+      <StyledButton onPress={() => navigation.navigate(Profile)}>
         <ButtonText>Get Started</ButtonText>
       </StyledButton>
     </StyledView>

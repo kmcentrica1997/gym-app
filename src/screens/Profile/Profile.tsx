@@ -1,11 +1,15 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {FC} from 'react';
 import React, {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import styled from 'styled-components';
+import {RootStackParamList} from '../../navigation/types';
 import Screen from '../components/Screen';
 import PopularWorkouts from './components/PopularWorkoutsCard';
 import SearchBar from './components/SearchBar';
 import TodaysPlanCard from './components/TodaysPlanCard';
+type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, 'Profile'>;
 
-const ProfileScreen = () => {
+const ProfileScreen: FC<ProfileScreenProps> = () => {
   return (
     <Screen>
       <StyledTextContainer>
