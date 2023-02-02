@@ -5,7 +5,7 @@ import PopularWorkouts from './components/PopularWorkoutsCard';
 import SearchBar from './components/SearchBar';
 import TodaysPlanCard from './components/TodaysPlanCard';
 
-const Profile = () => {
+const ProfileScreen = () => {
   return (
     <Screen>
       <StyledTextContainer>
@@ -15,21 +15,27 @@ const Profile = () => {
       <SearchBarContainer>
         <SearchBar></SearchBar>
       </SearchBarContainer>
-      <StyledWorkoutText>Popular Workouts</StyledWorkoutText>
-      <StyledCardRow contentContainerStyle={{flexDirection: 'row'}}>
-        <PopularWorkouts />
-        <PopularWorkouts />
-      </StyledCardRow>
-      <StyledPlanText>Today Plan</StyledPlanText>
-      <StyledCardRow contentContainerStyle={{flexDirection: 'column'}}>
-        <TodaysPlanCard />
-        <TodaysPlanCard />
-      </StyledCardRow>
+      <WorkoutContainer>
+        <StyledWorkoutText>Popular Workouts</StyledWorkoutText>
+        <StyledCardRow contentContainerStyle={{flexDirection: 'row'}}>
+          <PopularWorkouts />
+          <PopularWorkouts />
+        </StyledCardRow>
+      </WorkoutContainer>
+      <TodaysPlanContainer>
+        <StyledPlanText>Today Plan</StyledPlanText>
+        <StyledCardRow contentContainerStyle={{flexDirection: 'column'}}>
+          <TodaysPlanCard />
+          <TodaysPlanCard />
+          <TodaysPlanCard />
+          <TodaysPlanCard />
+        </StyledCardRow>
+      </TodaysPlanContainer>
     </Screen>
   );
 };
 
-export default Profile;
+export default ProfileScreen;
 
 const StyledTextContainer = styled(SafeAreaView)`
   justify-content: flex-start;
@@ -43,7 +49,12 @@ const StyledCardRow = styled(ScrollView)`
   margin-left: 10px;
   flex-direction: row;
 `;
-
+const WorkoutContainer = styled(View)`
+  margin-top: 20px;
+`;
+const TodaysPlanContainer = styled(View)`
+  margin-top: 30px;
+`;
 const StyledWorkoutText = styled(Text)`
   font-family: 'Lato';
   font-style: normal;
@@ -52,7 +63,7 @@ const StyledWorkoutText = styled(Text)`
   color: #192126;
   line-height: 22px;
   justify-content: flex-start;
-  margin-top: 70px;
+
   margin-left: 25px;
   /* left: 24px;
   top: 174px; */
