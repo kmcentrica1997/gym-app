@@ -1,5 +1,5 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {FC} from 'react';
+import {FC, useEffect} from 'react';
 import React, {
   View,
   ImageBackground,
@@ -7,7 +7,7 @@ import React, {
   TouchableOpacity,
 } from 'react-native';
 import styled from 'styled-components';
-import {IMAGENAME} from '../../images';
+
 import {Profile, RootStackParamList} from '../../navigation/types';
 
 type HomeProps = NativeStackScreenProps<RootStackParamList, 'Home'>;

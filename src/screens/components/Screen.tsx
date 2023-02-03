@@ -1,7 +1,12 @@
 import React, {ScrollView, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import styled from 'styled-components';
 
-const Screen = ({children}: any) => {
+interface ScreenProps {
+  children: JSX.Element;
+}
+
+const Screen = ({children}: ScreenProps) => {
   return <Container>{children}</Container>;
 };
 

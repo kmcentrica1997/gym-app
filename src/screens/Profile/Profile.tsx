@@ -1,7 +1,8 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {FC} from 'react';
+import {FC, useEffect, useState} from 'react';
 import React, {SafeAreaView, ScrollView, Text, View} from 'react-native';
 import styled from 'styled-components';
+import {useExerciseQuery} from '../../api/exercises/queries/useExerciseQuery';
 import {RootStackParamList} from '../../navigation/types';
 import Screen from '../components/Screen';
 import PopularWorkouts from './components/PopularWorkoutsCard';
@@ -10,6 +11,14 @@ import TodaysPlanCard from './components/TodaysPlanCard';
 type ProfileScreenProps = NativeStackScreenProps<RootStackParamList, 'Profile'>;
 
 const ProfileScreen: FC<ProfileScreenProps> = () => {
+  const {data: ExerciseData} = useExerciseQuery();
+
+  useEffect(() => {
+    if (ExerciseData) {
+      console.log('hi', ExerciseData[0].gifUrl);
+    }
+  }, []);
+
   return (
     <Screen>
       <StyledTextContainer>
@@ -22,8 +31,13 @@ const ProfileScreen: FC<ProfileScreenProps> = () => {
       <WorkoutContainer>
         <StyledWorkoutText>Popular Workouts</StyledWorkoutText>
         <StyledCardRow contentContainerStyle={{flexDirection: 'row'}}>
-          <PopularWorkouts />
-          <PopularWorkouts />
+          {ExerciseData
+            ? ExerciseData.slice(0, 5).map(Exercise => (
+                <PopularWorkouts
+                  uri={Exercise.gifUrl?.replace(/http/g, 'https')}
+                />
+              ))
+            : null}
         </StyledCardRow>
       </WorkoutContainer>
       <TodaysPlanContainer>
@@ -54,7 +68,7 @@ const StyledCardRow = styled(ScrollView)`
   flex-direction: row;
 `;
 const WorkoutContainer = styled(View)`
-  margin-top: 20px;
+  margin-top: 70px;
 `;
 const TodaysPlanContainer = styled(View)`
   margin-top: 30px;
